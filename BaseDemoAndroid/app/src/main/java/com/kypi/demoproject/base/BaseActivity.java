@@ -1,5 +1,9 @@
 package com.kypi.demoproject.base;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -15,12 +19,13 @@ import com.kypi.demoproject.di.component.ActivityComponent;
 import com.kypi.demoproject.di.component.DaggerActivityComponent;
 import com.kypi.demoproject.di.module.ActivityModule;
 import com.kypi.demoproject.di.module.PresenterModule;
+import com.kypi.demoproject.mvp.contracts.BaseContract;
 
 import butterknife.ButterKnife;
 
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener{
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener, BaseContract.View{
 
-
+    protected ProgressDialog progressDialog;
     private ActivityComponent mActivityComponent;
 
     /**
@@ -66,6 +71,32 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     }
 
 
+    /**
+     * Override this if you wanna use the custom progress dialog
+     */
+    @Override
+    public void showLoading() {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            return;
+        }
+        progressDialog = showLoadingDialog(this);
+    }
+
+    /**
+     * Override this if you wanna use the custom progress dialog
+     */
+    @Override
+    public void hideLoading() {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.cancel();
+        }
+    }
+
+    @Override
+    public void showMessage(String msg, int toastType) {
+        // TODO: 6/20/2018   Cần setup toast
+    }
+
 
     /**
      * Đổi màu của status bar
@@ -90,4 +121,30 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     public void onClick(View v) {
 
     }
+
+
+    /**
+     * Tạo ra dialog loading
+     * @param context
+     * @return
+     */
+    private static ProgressDialog showLoadingDialog(Context context) {
+        if (context == null) {
+            return null;
+        }
+        try {
+            ProgressDialog progressDialog = ProgressDialog.show(context, null, null, true, false);
+            if (progressDialog.getWindow() != null) {
+                progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            }
+            progressDialog.setContentView(R.layout.progress_dialog);
+            progressDialog.setIndeterminate(true);
+            progressDialog.setCancelable(true);
+            progressDialog.setCanceledOnTouchOutside(false);
+            return progressDialog;
+        } catch (WindowManager.BadTokenException e) {
+            return new ProgressDialog(context);
+        }
+    }
+
 }

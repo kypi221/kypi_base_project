@@ -1,6 +1,5 @@
-package com.kypi.demoproject.activities;
+package com.kypi.demoproject.mvp.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -14,9 +13,6 @@ import javax.inject.Inject;
 import butterknife.BindView;
 
 public class MainActivity extends BaseActivity {
-
-    @Inject
-    DemoRepository repository;
 
     @BindView(R.id.tv_demo_name)
     TextView tvDemoName;
@@ -41,6 +37,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onActivityCreated(Bundle savedInstanceState) {
-        tvDemoName.setText(repository.getDemoObject().name);
+        DemoActivity.showMe(this);
+        finish();
     }
 }

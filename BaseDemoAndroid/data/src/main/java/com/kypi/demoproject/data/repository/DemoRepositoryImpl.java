@@ -13,7 +13,7 @@ public class DemoRepositoryImpl implements DemoRepository {
 
     @Inject
     public DemoRepositoryImpl() {
-        this.demoObject = new DemoObject("My Demo Object");
+        this.demoObject = new DemoObject("This is demo object name");
     }
 
     @Override
