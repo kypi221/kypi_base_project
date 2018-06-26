@@ -1,7 +1,7 @@
 package com.kypi.demoproject.di.module;
 
-import com.kypi.demoproject.data.repository.DemoRepositoryImpl;
-import com.kypi.demoproject.domain.repository.DemoRepository;
+import com.kypi.demoproject.data.repository.IReadRankingBookRepositoryImpl;
+import com.kypi.demoproject.domain.repository.IReadDemoRepository;
 
 import javax.inject.Singleton;
 
@@ -13,7 +13,7 @@ public class RepositoryModule {
 
     @Provides
     @Singleton
-    public DemoRepository provideDemoRepository(DemoRepositoryImpl demoRepository) {
+    public IReadDemoRepository provideDemoRepository(IReadRankingBookRepositoryImpl demoRepository) {
         return demoRepository;
     }
 

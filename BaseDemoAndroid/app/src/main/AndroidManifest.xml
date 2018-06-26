@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kypi.demoproject">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -20,7 +25,7 @@
 
 
         <activity
-            android:name=".mvp.activities.DemoActivity"
+            android:name=".mvp.activities.IReadDemoActivity"
             android:screenOrientation="portrait" />
     </application>
 

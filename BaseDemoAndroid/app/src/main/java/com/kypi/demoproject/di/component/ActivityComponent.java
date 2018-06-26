@@ -1,6 +1,6 @@
 package com.kypi.demoproject.di.component;
 
-import com.kypi.demoproject.mvp.activities.DemoActivity;
+import com.kypi.demoproject.mvp.activities.IReadDemoActivity;
 import com.kypi.demoproject.mvp.activities.MainActivity;
 import com.kypi.demoproject.di.module.ActivityModule;
 import com.kypi.demoproject.di.module.PresenterModule;
@@ -16,5 +16,5 @@ public interface ActivityComponent {
 
     void inject(MainActivity mainActivity);
 
-    void inject(DemoActivity demoActivity);
+    void inject(IReadDemoActivity demoActivity);
 }

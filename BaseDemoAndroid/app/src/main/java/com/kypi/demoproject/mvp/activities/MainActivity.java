@@ -6,9 +6,6 @@ import android.widget.TextView;
 import com.kypi.demoproject.R;
 import com.kypi.demoproject.base.BaseActivity;
 import com.kypi.demoproject.di.component.ActivityComponent;
-import com.kypi.demoproject.domain.repository.DemoRepository;
-
-import javax.inject.Inject;
 
 import butterknife.BindView;
 
@@ -37,7 +34,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onActivityCreated(Bundle savedInstanceState) {
-        DemoActivity.showMe(this);
+        IReadDemoActivity.showMe(this);
         finish();
     }
 }

@@ -5,6 +5,9 @@ import android.app.Application;
 import com.kypi.demoproject.di.component.AppComponent;
 import com.kypi.demoproject.di.component.DaggerAppComponent;
 import com.kypi.demoproject.di.module.AppModule;
+import com.kypi.demoproject.di.module.RemoteModule;
+import com.kypi.demoproject.di.module.RepositoryModule;
+import com.kypi.demoproject.di.module.SchedulerModule;
 
 public class MyApplication extends Application {
 
@@ -27,6 +30,9 @@ public class MyApplication extends Application {
         // initialize component helper
         mAppComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
+                .repositoryModule(new RepositoryModule())
+                .schedulerModule(new SchedulerModule())
+                .remoteModule(new RemoteModule())
                 .build();
 
     }

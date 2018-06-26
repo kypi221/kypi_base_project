@@ -1,9 +1,7 @@
 package com.kypi.demoproject.di.module;
 
-import com.kypi.demoproject.domain.scheduler.SchedulerProvider;
-import com.kypi.demoproject.domain.usecase.DemoUseCase;
-import com.kypi.demoproject.mvp.contracts.DemoContract;
-import com.kypi.demoproject.mvp.presenter.DemoPresenter;
+import com.kypi.demoproject.mvp.contracts.IReadDemoContract;
+import com.kypi.demoproject.mvp.presenter.IReadDemoPresenter;
 
 import dagger.Module;
 import dagger.Provides;
@@ -22,7 +20,7 @@ public class PresenterModule {
 
 
     @Provides
-    DemoContract.Presenter presenter(DemoPresenter demoPresenter){
+    IReadDemoContract.Presenter presenter(IReadDemoPresenter demoPresenter){
         return demoPresenter;
     }
 
