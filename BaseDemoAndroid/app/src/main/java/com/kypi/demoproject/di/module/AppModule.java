@@ -4,8 +4,11 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.kypi.demoproject.MyApplication;
 import com.kypi.demoproject.R;
+import com.kypi.demoproject.app.gson.GsonBooleanAdapter;
 
 import javax.inject.Singleton;
 
@@ -39,5 +42,14 @@ public class AppModule {
     SharedPreferences provideSharedPreferences() {
         return mApplication.getSharedPreferences(mApplication.getString(R.string.app_name),
                 Context.MODE_PRIVATE);
+    }
+
+    @Provides
+    @Singleton
+    Gson provideGson() {
+        GsonBooleanAdapter serializer = new GsonBooleanAdapter();
+        return new GsonBuilder()
+                .registerTypeAdapter(Boolean.class, serializer)
+                .registerTypeAdapter(boolean.class, serializer).create();
     }
 }
