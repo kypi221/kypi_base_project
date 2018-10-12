@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <!-- Bottom View Start-->
+    <!-- Bottom View End-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/margin_12"
+            android:paddingRight="@dimen/margin_12">
+
+            <TextView
+                android:id="@+id/tv_simple_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="This is simple text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_view_more_ngang" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/margin_12"
+            android:layout_marginRight="@dimen/margin_12"
+            android:background="@color/home_divider" />
+
+    </LinearLayout>
+
+    <!-- Surface View End -->
+</RelativeLayout>
+
+
+
+
