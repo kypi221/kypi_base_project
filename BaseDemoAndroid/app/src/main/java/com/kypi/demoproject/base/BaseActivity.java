@@ -15,11 +15,13 @@ import android.view.WindowManager;
 
 import com.kypi.demoproject.MyApplication;
 import com.kypi.demoproject.R;
+import com.kypi.demoproject.app.helper.ViewClickedHelper;
 import com.kypi.demoproject.di.component.ActivityComponent;
 import com.kypi.demoproject.di.component.DaggerActivityComponent;
 import com.kypi.demoproject.di.module.ActivityModule;
 import com.kypi.demoproject.di.module.PresenterModule;
 import com.kypi.demoproject.mvp.contracts.BaseContract;
+import com.kypi.demoproject.widget.CustomToast;
 
 import butterknife.ButterKnife;
 
@@ -93,8 +95,21 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     }
 
     @Override
-    public void showMessage(String msg, int toastType) {
-        // TODO: 6/20/2018   Cần setup toast
+    public void showMessage(String msg, CustomToast.ToastType toastType) {
+        switch (toastType){
+            case ERROR:
+                CustomToast.showErrorMgs(this, msg);
+                break;
+            case SUCCESS:
+                CustomToast.showSuccessMgs(this, msg);
+                break;
+            case WARNING:
+                CustomToast.showWarningMgs(this, msg);
+                break;
+            case INFO:
+                CustomToast.showInfoMgs(this, msg);
+                break;
+        }
     }
 
 
@@ -119,7 +134,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      */
     @Override
     public void onClick(View v) {
-
+        ViewClickedHelper.handleViewClicked(this, v);
     }
 
 

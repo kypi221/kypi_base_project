@@ -3,31 +3,29 @@ package com.kypi.demoproject.mvp.adapters;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.kypi.demoproject.R;
 import com.kypi.demoproject.base.BaseSingleViewTypeAdapter;
+import com.kypi.demoproject.domain.entities.IReadBookInfo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SimpleAdapter extends BaseSingleViewTypeAdapter<SimpleAdapter.ItemViewHolder, String> {
+public class IReadBookInfoSimpleAdapter extends BaseSingleViewTypeAdapter<IReadBookInfoSimpleAdapter.ItemViewHolder, IReadBookInfo> {
 
 
-    public SimpleAdapter(List<String> listItems, Context context, View.OnClickListener onClickListener) {
+    public IReadBookInfoSimpleAdapter(List<IReadBookInfo> listItems, Context context, View.OnClickListener onClickListener) {
         super(listItems, context, onClickListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
-        String item = listItems.get(position);
-        holder.tvSimpleText.setText(item);
+        IReadBookInfo item = listItems.get(position);
+        holder.tvSimpleText.setText(item.title);
     }
 
     @Override

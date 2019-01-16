@@ -2,10 +2,13 @@ package com.kypi.demoproject.mvp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.kypi.demoproject.R;
 import com.kypi.demoproject.base.BaseActivity;
+import com.kypi.demoproject.mvp.adapters.IReadBookInfoSimpleAdapter;
 import com.kypi.demoproject.widget.CustomToast;
 import com.kypi.demoproject.di.component.ActivityComponent;
 import com.kypi.demoproject.domain.entities.IReadBookInfo;
@@ -26,6 +29,10 @@ public class IReadDemoActivity extends BaseActivity implements IReadDemoContract
 
     @BindView(R.id.tv_demo_name)
     TextView tvDemoName;
+
+    @BindView(R.id.recycler_view)
+    RecyclerView recyclerView;
+    private IReadBookInfoSimpleAdapter adapter;
 
     public static void showMe(BaseActivity activity) {
         Intent intent = new Intent(activity, IReadDemoActivity.class);
@@ -69,7 +76,15 @@ public class IReadDemoActivity extends BaseActivity implements IReadDemoContract
         }
 
 
-        CustomToast.showInfoMgs(this, "Danh sach book = " + bookInfos.size());
+        showMessage("Danh sách Book : " + bookInfos.size(), CustomToast.ToastType.SUCCESS);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new IReadBookInfoSimpleAdapter(bookInfos, this, this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setNestedScrollingEnabled(false);
     }
 
 }

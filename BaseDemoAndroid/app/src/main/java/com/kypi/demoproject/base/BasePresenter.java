@@ -3,6 +3,7 @@ package com.kypi.demoproject.base;
 import com.kypi.demoproject.mvp.contracts.BaseContract;
 
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.observers.DisposableObserver;
 
 public abstract class BasePresenter<T extends BaseContract.View> implements BaseContract.BasePresenter<T> {
 
@@ -23,13 +24,15 @@ public abstract class BasePresenter<T extends BaseContract.View> implements Base
     @Override
     public void detachView() {
         mMvpView = null;
-        if (compositeDisposable != null) {
-            compositeDisposable.dispose();
-        }
+        compositeDisposable.dispose();
     }
 
     @Override
     public T getMvpView() {
         return mMvpView;
+    }
+
+    protected void addToDisposable(DisposableObserver observer){
+        compositeDisposable.add(observer);
     }
 }

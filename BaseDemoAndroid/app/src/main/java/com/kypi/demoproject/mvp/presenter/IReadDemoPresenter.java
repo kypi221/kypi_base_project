@@ -28,16 +28,20 @@ public class IReadDemoPresenter extends BasePresenter<IReadDemoContract.View> im
 
     @Override
     public void loadBookRanking() {
+        getMvpView().showLoading();
+        addToDisposable(
         demoUseCase.loadBookRanking().subscribeWith(new SimpleObserver<List<IReadBookInfo>>() {
             @Override
             public void onResponse(List<IReadBookInfo> bookInfos) throws Exception {
+                getMvpView().hideLoading();
                 getMvpView().showBookRanking(bookInfos);
             }
 
             @Override
             public void onResponseError(Throwable throwable) throws Exception {
+                getMvpView().hideLoading();
                 getMvpView().showBookRanking(null);
             }
-        });
+        }));
     }
 }
