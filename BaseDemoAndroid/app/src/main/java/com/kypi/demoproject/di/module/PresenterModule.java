@@ -12,6 +12,8 @@ import io.reactivex.disposables.CompositeDisposable;
  */
 @Module
 public class PresenterModule {
+
+
     @Provides
     CompositeDisposable provideCompositeDisposable() {
         return new CompositeDisposable();

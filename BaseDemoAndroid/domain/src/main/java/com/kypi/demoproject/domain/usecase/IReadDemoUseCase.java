@@ -1,5 +1,6 @@
 package com.kypi.demoproject.domain.usecase;
 
+import com.kypi.demoproject.domain.authen.AuthenProvider;
 import com.kypi.demoproject.domain.entities.IReadBookInfo;
 import com.kypi.demoproject.domain.entities.DemoObject;
 import com.kypi.demoproject.domain.repository.IReadDemoRepository;
@@ -18,8 +19,10 @@ public class IReadDemoUseCase extends BaseUseCase {
     private final IReadDemoRepository repository;
 
     @Inject
-    public IReadDemoUseCase(SchedulerProvider schedulerProvider, IReadDemoRepository repository) {
-        super(schedulerProvider);
+    public IReadDemoUseCase(SchedulerProvider schedulerProvider,
+                            AuthenProvider authenProvider,
+                            IReadDemoRepository repository) {
+        super(schedulerProvider, authenProvider);
         this.repository = repository;
     }
 

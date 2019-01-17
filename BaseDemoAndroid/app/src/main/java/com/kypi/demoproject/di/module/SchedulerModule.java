@@ -1,6 +1,8 @@
 package com.kypi.demoproject.di.module;
 
+import com.kypi.demoproject.app.provider.BasicAuthenProvider;
 import com.kypi.demoproject.app.rx.AppSchedulerProvider;
+import com.kypi.demoproject.domain.authen.AuthenProvider;
 import com.kypi.demoproject.domain.scheduler.SchedulerProvider;
 
 import javax.inject.Singleton;
@@ -18,5 +20,11 @@ public class SchedulerModule {
     @Singleton
     public SchedulerProvider provideSchedulerProvider() {
         return new AppSchedulerProvider();
+    }
+
+    @Provides
+    @Singleton
+    public AuthenProvider provideAuthenProvider(BasicAuthenProvider provider) {
+        return provider;
     }
 }
