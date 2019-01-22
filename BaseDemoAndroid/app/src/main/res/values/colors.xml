@@ -8,7 +8,14 @@
 
 
     <color name="home_divider">#f0f0f0</color>
+    <color name="color_main">#ec6c03</color>
 
+    <!--Text Color-->
+    <color name="text_color_1">#212121</color>
+    <color name="text_color_2">#747474</color>
+    <color name="text_color_3">#a2a2a2</color>
+    <color name="text_color_red">#fd2214</color>
+    <color name="text_color_link">#1e72b8</color>
 
 
     <!--Standard-->
@@ -25,8 +32,19 @@
     <color name="white80">#CCFFFFFF</color>
     <color name="white20">#33FFFFFF</color>
     <color name="white15">#26FFFFFF</color>
+
+
+
     <color name="red">#FF0000</color>
+    <color name="blue">#0000FF</color>
+    <color name="green">#00FF00</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="pink">#FF00FF</color>
+    <color name="cyan">#00FFFF</color>
+
     <color name="gray">#607D8B</color>
+    <color name="transparent">#00FFFFFF</color>
+
 
 
     <!--100% — FF-->

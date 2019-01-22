@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+
+    <dimen name="custom_action_bar_height">48dp</dimen>
+    <dimen name="custom_bottom_bar_height">56dp</dimen>
+
     <dimen name="text_size_8">8dp</dimen>
     <dimen name="text_size_9">9dp</dimen>
     <dimen name="text_size_10">10dp</dimen>
@@ -40,5 +44,9 @@
     <dimen name="margin_24">24dp</dimen>
     <dimen name="margin_36">36dp</dimen>
     <dimen name="margin_48">48dp</dimen>
+
+    <dimen name="text_size_screen_title">@dimen/text_size_19</dimen>
+    <dimen name="margin_smail">6dp</dimen>
+    <dimen name="margin_normal">12dp</dimen>
 
 </resources>

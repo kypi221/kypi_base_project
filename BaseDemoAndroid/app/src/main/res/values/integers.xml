@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Thời gian đóng/mở của audio Activity-->
+    <integer name="audio_player_slide_duration">300</integer>
+
+
+    <integer name="rating_count">5</integer>
+
+    <integer name="audio_player_slide_min_distance">100</integer>
+    <integer name="audio_player_slide_max_off_path">250</integer>
+    <integer name="audio_player_slide_threshold_velocity">200</integer>
+
+</resources>

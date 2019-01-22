@@ -1,14 +1,24 @@
 package com.kypi.demoproject.mvp.activities;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.media.MediaScannerConnection;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kypi.demoproject.R;
 import com.kypi.demoproject.base.BaseActivity;
 import com.kypi.demoproject.mvp.adapters.IReadBookInfoSimpleAdapter;
+import com.kypi.demoproject.utils.ImageSavedUtil;
 import com.kypi.demoproject.widget.CustomToast;
 import com.kypi.demoproject.di.component.ActivityComponent;
 import com.kypi.demoproject.domain.entities.IReadBookInfo;
@@ -16,19 +26,37 @@ import com.kypi.demoproject.domain.entities.DemoObject;
 import com.kypi.demoproject.mvp.contracts.IReadDemoContract;
 import com.kypi.demoproject.mvp.presenter.IReadDemoPresenter;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class IReadDemoActivity extends BaseActivity implements IReadDemoContract.View {
+
+
+    private static final int REQUEST_CODE_SAVE = 44;
+    private static final int REQUEST_CODE_CAMERA = 55;
+    private static final int REQUEST_CODE_GALLERY = 66;
+    private static final int REQUEST_CODE_TAKE_PHOTO = 77;
+    private static final int REQUEST_CODE_CHOOSE_PHOTO = 88;
+    private static final String[] CAMERA_PERMISSION = {Manifest.permission.CAMERA};
+    private static final String[] GALLERY_PERMISSION = {Manifest.permission.READ_EXTERNAL_STORAGE};
+    private static final String[] SAVE_PERMISSION = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
 
     @Inject
     IReadDemoPresenter demoPresenter;
 
     @BindView(R.id.tv_demo_name)
     TextView tvDemoName;
+
+    @BindView(R.id.layout_root)
+    ViewGroup layoutRoot;
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
@@ -44,7 +72,7 @@ public class IReadDemoActivity extends BaseActivity implements IReadDemoContract
      */
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.activity_iread_demo;
     }
 
     /**
@@ -64,6 +92,7 @@ public class IReadDemoActivity extends BaseActivity implements IReadDemoContract
         demoPresenter.loadBookRanking();
     }
 
+
     @Override
     public void showDemoObject(DemoObject demoObject) {
         tvDemoName.setText(demoObject.name);
@@ -75,7 +104,6 @@ public class IReadDemoActivity extends BaseActivity implements IReadDemoContract
             return;
         }
 
-
         showMessage("Danh sách Book : " + bookInfos.size(), CustomToast.ToastType.SUCCESS);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -86,5 +114,11 @@ public class IReadDemoActivity extends BaseActivity implements IReadDemoContract
         recyclerView.setAdapter(adapter);
         recyclerView.setNestedScrollingEnabled(false);
     }
+
+    @OnClick(R.id.btn_save_image)
+    public void saveImage(){
+        ImageSavedUtil.enterSaveMemeFlow(layoutRoot, this, SAVE_PERMISSION, REQUEST_CODE_SAVE);
+    }
+
 
 }

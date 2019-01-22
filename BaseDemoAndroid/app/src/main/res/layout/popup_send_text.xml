@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="false"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/layout_background_top"
+        android:alpha="0"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            android:layout_alignParentBottom="true"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_note"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@string/font_family_light"
+                    android:paddingLeft="@dimen/margin_14"
+                    android:text="Nội dung bình luận không dưới 20 chữ"
+                    android:textColor="@color/text_color_2"
+                    android:textSize="@dimen/text_size_10" />\
+
+                <TextView
+                    android:id="@+id/tv_send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@string/font_family_medium"
+                    android:paddingLeft="@dimen/margin_14"
+                    android:paddingRight="@dimen/margin_14"
+                    android:paddingTop="@dimen/margin_6"
+                    android:paddingBottom="@dimen/margin_6"
+                    android:text="GỮI BÌNH LUẬN"
+                    android:textColor="@color/color_main"
+                    android:textSize="@dimen/text_size_12" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/scrollableContents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/footer"
+            android:background="@color/white"
+            android:isScrollContainer="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/margin_14"
+                android:layout_marginLeft="@dimen/margin_9"
+                android:layout_marginRight="@dimen/margin_9"
+                android:background="@drawable/bg_edt_search"
+                android:gravity="center"
+                android:padding="@dimen/margin_6">
+
+                <EditText
+                    android:id="@+id/edit_comment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:hint="Thêm bình luận"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/margin_14"
+                    android:paddingRight="@dimen/margin_14"
+                    android:textColor="@color/text_color_3"
+                    android:textSize="@dimen/text_size_13" />
+
+            </LinearLayout>
+
+        </ScrollView>
+    </RelativeLayout>
+</FrameLayout>

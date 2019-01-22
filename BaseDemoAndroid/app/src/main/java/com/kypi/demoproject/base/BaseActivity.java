@@ -70,6 +70,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
         onActivityCreated(savedInstanceState);
 
+        setTitle(getClass().getSimpleName());
+
     }
 
 
