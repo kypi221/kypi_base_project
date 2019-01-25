@@ -1,4 +1,4 @@
-package com.kypi.demoproject.mvp.sendtext;
+package com.kypi.demoproject.mvp.features.sendtext;
 
 public interface SendTextDialogCallBack {
 

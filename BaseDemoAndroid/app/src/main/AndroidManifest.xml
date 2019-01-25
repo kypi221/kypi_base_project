@@ -15,7 +15,7 @@
         android:roundIcon="@drawable/kypi_demo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mvp.activities.MainActivity">
+        <activity android:name=".mvp.features.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,6 +27,10 @@
         <activity
             android:name=".mvp.activities.IReadDemoActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activities.MainActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

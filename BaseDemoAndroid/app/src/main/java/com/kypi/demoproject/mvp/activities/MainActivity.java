@@ -1,7 +1,6 @@
 package com.kypi.demoproject.mvp.activities;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,10 +13,8 @@ import com.kypi.demoproject.app.helper.ViewClickedHelper;
 import com.kypi.demoproject.base.BaseActivity;
 import com.kypi.demoproject.base.BaseSingleViewTypeAdapter;
 import com.kypi.demoproject.di.component.ActivityComponent;
-import com.kypi.demoproject.domain.entities.IReadBookInfo;
-import com.kypi.demoproject.mvp.adapters.IReadBookInfoSimpleAdapter;
-import com.kypi.demoproject.mvp.sendtext.SendTextDialog;
-import com.kypi.demoproject.mvp.sendtext.SendTextDialogCallBack;
+import com.kypi.demoproject.mvp.features.sendtext.SendTextDialog;
+import com.kypi.demoproject.mvp.features.sendtext.SendTextDialogCallBack;
 import com.kypi.demoproject.widget.CustomToast;
 
 import java.util.Arrays;

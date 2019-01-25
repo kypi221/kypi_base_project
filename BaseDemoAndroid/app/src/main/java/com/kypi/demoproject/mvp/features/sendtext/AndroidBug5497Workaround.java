@@ -1,4 +1,4 @@
-package com.kypi.demoproject.mvp.sendtext;
+package com.kypi.demoproject.mvp.features.sendtext;
 
 import android.animation.ValueAnimator;
 import android.app.Activity;
