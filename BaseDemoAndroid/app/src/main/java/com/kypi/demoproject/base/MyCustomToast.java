@@ -1,4 +1,4 @@
-package com.kypi.demoproject.widget;
+package com.kypi.demoproject.base;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.kypi.demoproject.R;
 
-public class CustomToast {
+public class MyCustomToast {
 
     public enum ToastType{
         INFO,
@@ -19,7 +19,7 @@ public class CustomToast {
     }
 
 
-    private CustomToast() {
+    private MyCustomToast() {
     }
 
     public static void showNotAvailableFeature(Context context){

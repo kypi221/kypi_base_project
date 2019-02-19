@@ -1,5 +1,6 @@
 package com.kypi.demoproject.mvp.contracts;
 
+import com.kypi.demoproject.base.BaseContract;
 import com.kypi.demoproject.domain.entities.IReadBookInfo;
 import com.kypi.demoproject.domain.entities.DemoObject;
 

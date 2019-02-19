@@ -20,8 +20,6 @@ import com.kypi.demoproject.app.helper.ViewClickedHelper;
 import com.kypi.demoproject.di.component.DaggerDialogComponent;
 import com.kypi.demoproject.di.component.DialogComponent;
 import com.kypi.demoproject.di.module.PresenterModule;
-import com.kypi.demoproject.mvp.contracts.BaseContract;
-import com.kypi.demoproject.widget.CustomToast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -121,20 +119,20 @@ public abstract class BaseDialog extends Dialog implements BaseContract.View, Vi
      * Handle Error
      */
     @Override
-    public void showMessage(String msg, CustomToast.ToastType toastType) {
+    public void showMessage(String msg, MyCustomToast.ToastType toastType) {
 
         switch (toastType) {
             case ERROR:
-                CustomToast.showErrorMgs(getActivity(), msg);
+                MyCustomToast.showErrorMgs(getActivity(), msg);
                 break;
             case SUCCESS:
-                CustomToast.showSuccessMgs(getActivity(), msg);
+                MyCustomToast.showSuccessMgs(getActivity(), msg);
                 break;
             case WARNING:
-                CustomToast.showWarningMgs(getActivity(), msg);
+                MyCustomToast.showWarningMgs(getActivity(), msg);
                 break;
             case INFO:
-                CustomToast.showInfoMgs(getActivity(), msg);
+                MyCustomToast.showInfoMgs(getActivity(), msg);
                 break;
         }
     }

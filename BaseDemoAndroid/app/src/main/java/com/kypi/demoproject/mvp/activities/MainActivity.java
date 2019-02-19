@@ -14,8 +14,7 @@ import com.kypi.demoproject.base.BaseActivity;
 import com.kypi.demoproject.base.BaseSingleViewTypeAdapter;
 import com.kypi.demoproject.di.component.ActivityComponent;
 import com.kypi.demoproject.mvp.features.sendtext.SendTextDialog;
-import com.kypi.demoproject.mvp.features.sendtext.SendTextDialogCallBack;
-import com.kypi.demoproject.widget.CustomToast;
+import com.kypi.demoproject.base.MyCustomToast;
 
 import java.util.Arrays;
 import java.util.List;
@@ -71,7 +70,7 @@ public class MainActivity extends BaseActivity {
 //        FeatureObject item = (FeatureObject) v.getTag(R.id.tag_object);
 //        startActivity(new Intent(this, item.aClass));
 
-        SendTextDialog.showMe(this, (text, dialog) -> showMessage(text, CustomToast.ToastType.SUCCESS));
+        SendTextDialog.showMe(this, (text, dialog) -> showMessage(text, MyCustomToast.ToastType.SUCCESS));
 
     }
 

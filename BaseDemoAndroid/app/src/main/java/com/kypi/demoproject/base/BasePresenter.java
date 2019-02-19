@@ -1,7 +1,5 @@
 package com.kypi.demoproject.base;
 
-import com.kypi.demoproject.mvp.contracts.BaseContract;
-
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
 

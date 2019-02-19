@@ -1,6 +1,4 @@
-package com.kypi.demoproject.mvp.contracts;
-
-import com.kypi.demoproject.widget.CustomToast;
+package com.kypi.demoproject.base;
 
 public interface BaseContract {
 
@@ -14,6 +12,6 @@ public interface BaseContract {
         void showLoading();
         void hideLoading();
 
-        void showMessage(String msg, CustomToast.ToastType type);
+        void showMessage(String msg, MyCustomToast.ToastType type);
     }
 }

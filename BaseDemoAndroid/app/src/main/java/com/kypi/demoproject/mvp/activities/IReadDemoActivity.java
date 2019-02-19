@@ -2,33 +2,23 @@ package com.kypi.demoproject.mvp.activities;
 
 import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.media.MediaScannerConnection;
 import android.os.Bundle;
-import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.kypi.demoproject.R;
 import com.kypi.demoproject.base.BaseActivity;
 import com.kypi.demoproject.mvp.adapters.IReadBookInfoSimpleAdapter;
 import com.kypi.demoproject.utils.ImageSavedUtil;
-import com.kypi.demoproject.widget.CustomToast;
+import com.kypi.demoproject.base.MyCustomToast;
 import com.kypi.demoproject.di.component.ActivityComponent;
 import com.kypi.demoproject.domain.entities.IReadBookInfo;
 import com.kypi.demoproject.domain.entities.DemoObject;
 import com.kypi.demoproject.mvp.contracts.IReadDemoContract;
 import com.kypi.demoproject.mvp.presenter.IReadDemoPresenter;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -104,7 +94,7 @@ public class IReadDemoActivity extends BaseActivity implements IReadDemoContract
             return;
         }
 
-        showMessage("Danh sách Book : " + bookInfos.size(), CustomToast.ToastType.SUCCESS);
+        showMessage("Danh sách Book : " + bookInfos.size(), MyCustomToast.ToastType.SUCCESS);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 

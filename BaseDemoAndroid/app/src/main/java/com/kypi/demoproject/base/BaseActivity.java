@@ -20,8 +20,6 @@ import com.kypi.demoproject.di.component.ActivityComponent;
 import com.kypi.demoproject.di.component.DaggerActivityComponent;
 import com.kypi.demoproject.di.module.ActivityModule;
 import com.kypi.demoproject.di.module.PresenterModule;
-import com.kypi.demoproject.mvp.contracts.BaseContract;
-import com.kypi.demoproject.widget.CustomToast;
 
 import butterknife.ButterKnife;
 
@@ -97,19 +95,19 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     }
 
     @Override
-    public void showMessage(String msg, CustomToast.ToastType toastType) {
+    public void showMessage(String msg, MyCustomToast.ToastType toastType) {
         switch (toastType){
             case ERROR:
-                CustomToast.showErrorMgs(this, msg);
+                MyCustomToast.showErrorMgs(this, msg);
                 break;
             case SUCCESS:
-                CustomToast.showSuccessMgs(this, msg);
+                MyCustomToast.showSuccessMgs(this, msg);
                 break;
             case WARNING:
-                CustomToast.showWarningMgs(this, msg);
+                MyCustomToast.showWarningMgs(this, msg);
                 break;
             case INFO:
-                CustomToast.showInfoMgs(this, msg);
+                MyCustomToast.showInfoMgs(this, msg);
                 break;
         }
     }
