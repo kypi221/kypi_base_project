@@ -1,8 +1,8 @@
 package com.kypi.demoproject.app.debug;
 
-import com.kypi.demoproject.domain.debugs.DomainLog;
+import com.kypi.demoproject.domain.debugs.AppLogProvider;
 
-public class DomainLogImpl implements DomainLog {
+public class AppLogProviderImpl implements AppLogProvider {
     @Override
     public void d(String msg) {
         ILog.d(msg);

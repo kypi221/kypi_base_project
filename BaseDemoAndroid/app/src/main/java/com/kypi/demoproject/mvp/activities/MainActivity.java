@@ -70,6 +70,7 @@ public class MainActivity extends BaseActivity {
 //        FeatureObject item = (FeatureObject) v.getTag(R.id.tag_object);
 //        startActivity(new Intent(this, item.aClass));
 
+        ILog.d("Main Activty Clicked");
         SendTextDialog.showMe(this, (text, dialog) -> showMessage(text, MyCustomToast.ToastType.SUCCESS));
 
     }

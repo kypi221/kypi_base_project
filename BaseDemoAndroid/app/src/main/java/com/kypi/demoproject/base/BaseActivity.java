@@ -20,6 +20,9 @@ import com.kypi.demoproject.di.component.ActivityComponent;
 import com.kypi.demoproject.di.component.DaggerActivityComponent;
 import com.kypi.demoproject.di.module.ActivityModule;
 import com.kypi.demoproject.di.module.PresenterModule;
+import com.kypi.demoproject.domain.debugs.AppLogProvider;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 
@@ -33,6 +36,9 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      */
     @LayoutRes
     protected abstract int getLayoutId();
+
+    @Inject
+    public AppLogProvider ILog;
 
     /**
      * Setup activity component/inject

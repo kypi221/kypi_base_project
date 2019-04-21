@@ -1,6 +1,6 @@
 package com.kypi.demoproject.domain.debugs;
 
-public interface DomainLog {
+public interface AppLogProvider {
     public void d(String msg);
     public void d(String tag, String msg);
 

@@ -1,5 +1,9 @@
 package com.kypi.demoproject.base;
 
+import com.kypi.demoproject.domain.debugs.AppLogProvider;
+
+import javax.inject.Inject;
+
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
 
@@ -10,7 +14,10 @@ public abstract class BasePresenter<T extends BaseContract.View> implements Base
     // Bookmark the subscription  for cancel event move next screen if activity destroyed
     protected final CompositeDisposable compositeDisposable;
 
-    public BasePresenter() {
+    protected final AppLogProvider ILog;
+
+    public BasePresenter(AppLogProvider logProvider) {
+        this.ILog = logProvider;
         this.compositeDisposable = new CompositeDisposable();
     }
 

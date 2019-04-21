@@ -2,6 +2,7 @@ package com.kypi.demoproject.mvp.presenter;
 
 import com.kypi.demoproject.app.rx.SimpleObserver;
 import com.kypi.demoproject.base.BasePresenter;
+import com.kypi.demoproject.domain.debugs.AppLogProvider;
 import com.kypi.demoproject.domain.entities.IReadBookInfo;
 import com.kypi.demoproject.domain.entities.DemoObject;
 import com.kypi.demoproject.domain.usecase.IReadDemoUseCase;
@@ -16,7 +17,8 @@ public class IReadDemoPresenter extends BasePresenter<IReadDemoContract.View> im
     private final IReadDemoUseCase demoUseCase;
 
     @Inject
-    public IReadDemoPresenter(IReadDemoUseCase demoUseCase){
+    public IReadDemoPresenter(AppLogProvider appLogProvider, IReadDemoUseCase demoUseCase){
+        super(appLogProvider);
         this.demoUseCase = demoUseCase;
     }
 
