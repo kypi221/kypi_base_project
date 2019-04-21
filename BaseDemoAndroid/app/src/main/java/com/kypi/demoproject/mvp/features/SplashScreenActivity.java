@@ -75,6 +75,7 @@ public class SplashScreenActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (subscribe!= null)
         subscribe.dispose();
     }
 
