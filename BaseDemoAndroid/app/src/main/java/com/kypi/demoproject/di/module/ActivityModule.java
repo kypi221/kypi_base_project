@@ -2,7 +2,7 @@ package com.kypi.demoproject.di.module;
 
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.kypi.demoproject.base.BaseActivity;
 

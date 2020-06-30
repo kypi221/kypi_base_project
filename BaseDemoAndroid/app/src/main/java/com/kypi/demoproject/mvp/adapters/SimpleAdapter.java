@@ -1,17 +1,15 @@
 package com.kypi.demoproject.mvp.adapters;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.kypi.demoproject.R;
 import com.kypi.demoproject.base.BaseSingleViewTypeAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;

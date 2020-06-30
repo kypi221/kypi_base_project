@@ -1,6 +1,6 @@
 package com.kypi.demoproject.app.helper;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 
 import com.kypi.demoproject.R;
